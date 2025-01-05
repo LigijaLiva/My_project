@@ -1,0 +1,3 @@
+INFO - Importing TRANSFER\testdb_books.sql...
+2025-01-05 20:23:04 - INFO - Successfully imported 'testdb_books.sql'!
+2025-01-05 20:23:04 - INFO - Database connection closed.
