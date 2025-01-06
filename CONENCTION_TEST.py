@@ -15,6 +15,7 @@ logging.basicConfig(
 
 def test_database_connection():
     """Test the database connection by executing a simple query."""
+    #mainīg ielas
     config = ConfigParser()
     config.read('CONFIGURATION.ini')
 
