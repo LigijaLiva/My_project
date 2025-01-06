@@ -5,6 +5,7 @@ import logging
 # Set up logging configuration
 log_directory = "CODE_LOGS"
 log_filename = "db_connection_test.log"
+#  žurnalēšana
 logging.basicConfig(
     filename=f"{log_directory}/{log_filename}",
     level=logging.DEBUG,
