@@ -22,6 +22,7 @@ jobs:
       run: |
         pip install mysql-connector-python
 
+# automatizēti testi
     - name: Run database connection test
       run: |
         python CONENCTION_TEST.py
