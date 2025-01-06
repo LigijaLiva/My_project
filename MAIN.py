@@ -1,22 +1,30 @@
+ # Importē MySQL konektoru
 import mysql.connector
+# Importē ConfigParser, lai nolasītu konfigurācijas failu
 from configparser import ConfigParser
 
 def connect_to_database():
     """Establish connection to the database."""
+    # Mainīgie tiek ielasīti no ārēja konfigurācijas faila
     config = ConfigParser()
     config.read('CONFIGURATION.ini')
     try:
+        # Izveido savienojumu ar MySQL datubāzi, izmantojot parametrus no konfigurācijas faila
         connection = mysql.connector.connect(
-            host=config['database']['host'],
+            host=config['database']['host'], #serv. adreses
             user=config['database']['user'],
             password=config['database']['password'],
-            database=config['database']['database']
+            database=config['database']['database'] #datubāz nosauk
         )
         return connection
+    # Apstrādā kļūdu, ja savienojums neizdodas    
     except mysql.connector.Error as e:
+        # Pārbauda, vai kļūda ir saistīta ar nezināmu datubāzi
         if "Unknown database" in str(e):
+            #ja rodas kļūda
             print("Database not found! Please run IMPORT_DATA.py to set up the database.")
         else:
+            # Apstrādā kļūdas pievienošanas laikā
             print(f"Error connecting to the database: {e}")
         return None
 
@@ -65,6 +73,7 @@ def view_records(connection):
         if not records:
             print("No records found.")
         else:
+            # Izdrukā grāmatu ierakstus tabulas formātā
             print("\nBooks in Database:")
             print(f"{'ID':<5} {'Title':<30} {'Author':<30}")
             print("-" * 70)
@@ -79,7 +88,7 @@ def main():
     if not connection:
         return
 
-    while True:
+    while True: # Galvenais izvēlnes cikls
         print("\nBook Management Menu:")
         print("1. Add Book")
         print("2. Edit Book")
