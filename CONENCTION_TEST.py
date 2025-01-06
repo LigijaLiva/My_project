@@ -13,6 +13,7 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 
+#automatizēti testi
 def test_database_connection():
     """Test the database connection by executing a simple query."""
     #mainīg ielas
