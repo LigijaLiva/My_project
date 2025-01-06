@@ -41,6 +41,7 @@ def import_sql_file():
 
         # Check if the database exists
         database_name = config['database']['database']
+        #datu lasīš/rakst
         cursor.execute(f"SHOW DATABASES LIKE '{database_name}'")
         db_exists = cursor.fetchone()
 
